@@ -1,10 +1,10 @@
-package org.cordova.amqpnotification;
+package org.amqp.notification;
 
 import org.apache.cordova.LOG;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import com.infobip.push.PushNotification;
+import org.amqp.notification.PushNotification;
 
 import android.app.Activity;
 import android.content.res.Configuration;
@@ -55,10 +55,10 @@ public class PushHandlerActivity extends Activity {
 		Bundle extras = getIntent().getExtras();
 
 		if (null != extras) {
-			String push =extras.getString("push"));
-			Push.proceedNotification(push);
+			String message =extras.getString("pushMessage");
+			Push.proceedNotification(new PushNotification(message));
 
-			LOG.d(Push.TAG, push.toString());
+			LOG.d(Push.TAG, message);
 		}
 	}
 

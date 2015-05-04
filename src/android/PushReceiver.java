@@ -1,4 +1,4 @@
-package org.cordova.amqpnotification;
+package org.amqp.notification;
 
 import org.amqp.PushNotification;
 import org.amqp.Push;

@@ -15,7 +15,7 @@
   <platform name="android">
     <config-file target="res/xml/config.xml" parent="/*">
       <feature name="Push">
-        <param name="android-package" value="org.cordova.amqpnotification.Push"/>
+        <param name="android-package" value="org.amqp.notification.Push"/>
       </feature>
     </config-file>
     <source-file src="src/android/Push.java" target-dir="src/org/flibusteam/push/cordova" />
@@ -29,9 +29,7 @@
       <uses-permission android:name="android.permission.INTERNET" />
     </config-file>
     <config-file target="AndroidManifest.xml" parent="/manifest/application">
-      </activity>
       <activity android:name="com.infobip.push.cordova.PushHandlerActivity" />
-      </receiver>
     </config-file>
   </platform>
 </plugin>

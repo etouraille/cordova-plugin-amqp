@@ -1,4 +1,4 @@
-package org.cordova.amqpnotification;
+package org.amqp.notification ;
 
 import java.lang.String;
 
@@ -6,9 +6,9 @@ class PushNotification {
     
     private String content;
 
-    public void PushNotification(String content ) {
+    public PushNotification(String content ) {
         
-       content = content;
+       this.content = content;
     
     }
 
@@ -21,7 +21,7 @@ class PushNotification {
     }
 
     public String getId(){
-        return 'BEEP';
+        return new String("BEEP");
     }
 
 }

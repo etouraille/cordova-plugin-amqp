@@ -17,7 +17,7 @@ var notification = {
         cordova.exec(
             successCb,
             errorCb,
-            'AMQP',
+            'PUSH',
             'register',
             [{'notificationListener' : 'notification.listenerCallback'}]
         );
