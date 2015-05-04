@@ -17,7 +17,7 @@ var notification = {
         cordova.exec(
             successCb,
             errorCb,
-            'PUSH',
+            'Push',
             'register',
             [{'notificationListener' : 'notification.listenerCallback'}]
         );

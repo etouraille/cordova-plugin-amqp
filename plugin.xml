@@ -9,7 +9,7 @@
       <engine name="cordova" version=">=3.0.0" />
   </engines>
   <js-module src="www/notification.js" name="Notification">
-    <clobbers target="notification" />
+    <clobbers target="amqp.notification" />
   </js-module>
   <!-- android -->
   <platform name="android">
