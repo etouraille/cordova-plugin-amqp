@@ -37,7 +37,7 @@ class PushManager  {
                 while (true) {
                     Delivery delivery = consumer.nextDelivery();
                     String message = new String(delivery.getBody());
-                    Log.d("MESSAGE",message);
+                    Log.e("MESSAGE",message);
                     PushNotification notification = new PushNotification(message);
                     PushReceiver.onNotificationReceived(notification, Push.getContext());
                 }
