@@ -16,7 +16,7 @@ import android.text.TextUtils;
 import android.util.Log;
 
 import org.amqp.notification.PushNotification;
-import org.amqp.notification.PushNotificationManager;
+import org.amqp.notification.PushManager;
 
 public class Push extends CordovaPlugin {
 	private static CallbackContext clbContext;
@@ -37,7 +37,7 @@ public class Push extends CordovaPlugin {
 			clbContext = callbackContext;
 			notificationEventListener = args.getJSONObject(0).getString("notificationListener");
 
-			cordovaWebView = this.webView;
+cordovaWebView = this.webView;
 			this.manager = new PushManager(cordova.getActivity());
                         // ############# INITIALIZE #############
                         if (ACTION_INITIALIZE.equals(action)) {
@@ -89,7 +89,7 @@ public class Push extends CordovaPlugin {
 	}
 
 	public static Context getContext() {
-		return CordovaWebView.getContext();
+		return CordovaWebView;
 	}
 
 	public static void sendJavascript(String js) {
