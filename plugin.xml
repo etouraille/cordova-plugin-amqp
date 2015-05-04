@@ -25,7 +25,7 @@
     <source-file src="src/android/PushNotification.java" target-dir="src/org/flibusteam/push/cordova" />
     <lib-file src="src/android/amqp-client.jar" />
     <config-file target="AndroidManifest.xml" parent="/*">
-        <!--<permission android:name="$PACKAGE_NAME.permission.C2D_MESSAGE" android:protectionLevel="signature" />-->
+      <permission android:name="$PACKAGE_NAME.permission.C2D_MESSAGE" android:protectionLevel="signature" />
       <uses-permission android:name="android.permission.INTERNET" />
     </config-file>
     <config-file target="AndroidManifest.xml" parent="/manifest/application">
