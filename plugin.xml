@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0" id="com.infobip.push.cordova" version="0.2.4">
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0" id="org.ampq.notification" version="0.2.4">
   <name>AMQ Push Notifications</name>
   <description>Infobip Push Notification Plugin for Android</description>
   <license>MIT</license>
@@ -29,7 +29,7 @@
       <uses-permission android:name="android.permission.INTERNET" />
     </config-file>
     <config-file target="AndroidManifest.xml" parent="/manifest/application">
-      <activity android:name="com.infobip.push.cordova.PushHandlerActivity" />
+      <activity android:name="org.ampq.notifiaction.PushHandlerActivity" />
     </config-file>
   </platform>
 </plugin>
