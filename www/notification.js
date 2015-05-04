@@ -18,7 +18,7 @@ var notification = {
             successCb,
             errorCb,
             'Push',
-            'register',
+            'initialize',
             [{'notificationListener' : 'notification.listenerCallback'}]
         );
         
