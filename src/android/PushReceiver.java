@@ -1,7 +1,7 @@
 package org.amqp.notification;
 
-import org.amqp.PushNotification;
-import org.amqp.Push;
+import org.amqp.notification.PushNotification;
+import org.amqp.notification.Push;
 import android.content.Context;
 import android.content.Intent;
 
