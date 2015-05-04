@@ -1,110 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <plugin xmlns="http://apache.org/cordova/ns/plugins/1.0" id="com.infobip.push.cordova" version="0.2.4">
-  <name>Infobip Push Notifications</name>
-  <description>Infobip Push Notification Plugin for Android and iOS</description>
+  <name>AMQ Push Notifications</name>
+  <description>Infobip Push Notification Plugin for Android</description>
   <license>MIT</license>
-  <keywords>push,notification,infobip,notifications,geofence,geolocation,SMS fallback,statistics</keywords>
-  <author email="plugins@infobip.com" href="https://push.infobip.com">Infobip Ltd.</author>
+  <keywords>push,notification,amqp,rabbitmq</keywords>
+  <author email="edouard.touraille@gmail.com" href="http://www.flibusteam.org">Flibusteam</author>
   <engines>
       <engine name="cordova" version=">=3.0.0" />
   </engines>
-  <js-module src="www/push.js" name="Push">
-    <clobbers target="push" />
+  <js-module src="www/notification.js" name="Notification">
+    <clobbers target="notification" />
   </js-module>
   <!-- android -->
   <platform name="android">
     <config-file target="res/xml/config.xml" parent="/*">
       <feature name="Push">
-        <param name="android-package" value="com.infobip.push.cordova.Push"/>
-      </feature>
-      <feature name="Location">
-        <param name="android-package" value="com.infobip.push.cordova.Location"/>
-      </feature>
-      <feature name="Builder">
-        <param name="android-package" value="com.infobip.push.cordova.Builder"/>
+        <param name="android-package" value="org.cordova.amqpnotification.Push"/>
       </feature>
     </config-file>
-    <source-file src="src/android/Push.java" target-dir="src/com/infobip/push/cordova" />
-    <source-file src="src/android/CordovaPushReceiver.java" target-dir="src/com/infobip/push/cordova" />
-    <source-file src="src/android/PushHandlerActivity.java" target-dir="src/com/infobip/push/cordova" />
-    <source-file src="src/android/Location.java" target-dir="src/com/infobip/push/cordova" />
-    <source-file src="src/android/Builder.java" target-dir="src/com/infobip/push/cordova" />
-    <lib-file src="src/android/infobip-push-1.2.0.jar" />
+    <source-file src="src/android/Push.java" target-dir="src/org/flibusteam/push/cordova" />
+    <source-file src="src/android/PushReceiver.java" target-dir="src/org/flibusteam/push/cordova" />
+    <source-file src="src/android/PushHandlerActivity.java" target-dir="src/org/flibusteam/push/cordova" />
+    <source-file src="src/android/PushManager.java" target-dir="src/org/flibusteam/push/cordova" />
+    <source-file src="src/android/PushNotification.java" target-dir="src/org/flibusteam/push/cordova" />
+    <lib-file src="src/android/amqp-client.jar" />
     <config-file target="AndroidManifest.xml" parent="/*">
-      <permission android:name="$PACKAGE_NAME.permission.C2D_MESSAGE" android:protectionLevel="signature" />
-      <uses-permission android:name="$PACKAGE_NAME.permission.C2D_MESSAGE" />
-      <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
+        <!--<permission android:name="$PACKAGE_NAME.permission.C2D_MESSAGE" android:protectionLevel="signature" />-->
       <uses-permission android:name="android.permission.INTERNET" />
-      <uses-permission android:name="android.permission.GET_ACCOUNTS" />
-      <uses-permission android:name="android.permission.WAKE_LOCK" />
-      <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-      <uses-permission android:name="android.permission.VIBRATE" />
-      <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-      <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
     </config-file>
     <config-file target="AndroidManifest.xml" parent="/manifest/application">
-      <activity android:name="com.infobip.push.media.MediaActivity" android:hardwareAccelerated="true" android:screenOrientation="portrait" >
       </activity>
       <activity android:name="com.infobip.push.cordova.PushHandlerActivity" />
-      <service android:name="com.infobip.push.lib.InfobipPushService" />
-      <service android:name="com.infobip.push.lib.LocationService" />
-      <service android:name="com.infobip.push.lib.LocationUpdateService" />
-      <receiver android:name="com.infobip.push.lib.InfobipPushReceiver" android:permission="com.google.android.c2dm.permission.SEND">
-        <intent-filter>
-          <action android:name="com.google.android.c2dm.intent.RECEIVE"/>
-          <action android:name="com.google.android.c2dm.intent.REGISTRATION"/>
-          <category android:name="$PACKAGE_NAME"/>
-        </intent-filter>
-      </receiver>
-      <receiver android:name="com.infobip.push.lib.InternalReceiver" />
-      <receiver android:name="com.infobip.push.cordova.CordovaPushReceiver" android:permission="$PACKAGE_NAME.permission.C2D_MESSAGE">
-        <intent-filter>
-          <action android:name="com.infobip.push.intent.REGISTERED_FOR_NOTIFICATIONS"/>
-          <action android:name="com.infobip.push.intent.REGISTRATION_REFRESHED"/>
-          <action android:name="com.infobip.push.intent.UNREGISTERED_FROM_NOTIFICATIONS"/>
-          <action android:name="com.infobip.push.intent.NOTIFICATION_RECEIVED"/>
-          <action android:name="com.infobip.push.intent.NOTIFICATION_OPENED"/>
-          <action android:name="com.infobip.push.intent.ERROR"/>
-          <category android:name="$PACKAGE_NAME"/>
-        </intent-filter>
-      </receiver>
-      <receiver android:name="com.infobip.push.lib.LocationBootReceiver" android:exported="false">
-        <intent-filter>
-          <action android:name="android.intent.action.BOOT_COMPLETED"/>
-        </intent-filter>
       </receiver>
     </config-file>
-  </platform>
-  <!-- ios -->
-  <platform name="ios">
-    <config-file target="config.xml" parent="/*">
-      <feature name="Push">
-        <param name="ios-package" value="IBPush" />
-      </feature>
-      <feature name="Location">
-        <param name="ios-package" value="IBLocation" />
-      </feature>
-    </config-file>
-    <config-file target="*-Info.plist" parent="UIBackgroundModes">
-      <array>
-        <string>fetch</string>
-        <string>remote-notification</string>
-      </array>
-    </config-file>
-    <source-file src="src/ios/AppDelegate+notification.m" />
-    <source-file src="src/ios/IBPush.m" />
-    <source-file src="src/ios/IBLocation.m" />
-    <source-file src="src/ios/libInfobipPush.a" framework="true"/>
-    <source-file src="src/ios/libInfobipPushAddOn.a" framework="true"/>
-    <header-file src="src/ios/AppDelegate+notification.h" />
-    <header-file src="src/ios/IBPush.h" />
-    <header-file src="src/ios/IBLocation.h" />
-    <header-file src="src/ios/InfobipPush.h" />
-    <header-file src="src/ios/InfobipMediaView.h" />
-    <framework src="SystemConfiguration.framework" />
-    <framework src="MapKit.framework" />
-    <framework src="CoreTelephony.framework" />
-    <framework src="CoreLocation.framework" />
-    <framework src="QuartzCore.framework" />
   </platform>
 </plugin>
