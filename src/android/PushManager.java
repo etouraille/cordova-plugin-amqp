@@ -1,4 +1,4 @@
-package org.amqp.notification;
+.package org.amqp.notification;
 
 import org.apache.cordova.CordovaActivity;
 
@@ -12,7 +12,7 @@ import com.rabbitmq.client.Channel;
 import com.rabbitmq.client.QueueingConsumer;
 import com.rabbitmq.client.QueueingConsumer.Delivery;
 //org.amqp
-import org.amqp.notification.PushNotifiaction;
+import org.amqp.notification.PushNotification;
 import org.amqp.notification.PushReceiver;
 //android 
 import android.util.Log;
