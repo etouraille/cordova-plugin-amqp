@@ -1,4 +1,4 @@
-.package org.amqp.notification;
+package org.amqp.notification;
 
 import org.apache.cordova.CordovaActivity;
 
