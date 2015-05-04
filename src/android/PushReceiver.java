@@ -16,4 +16,5 @@ public class PushReceiver {
             
             context.startActivity(intent);
         } 
+    }
 }
