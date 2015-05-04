@@ -13,8 +13,9 @@ import com.rabbitmq.client.QueueingConsumer;
 import com.rabbitmq.client.QueueingConsumer.Delivery;
 //org.amqp
 import org.amqp.notification.PushNotifiaction;
-
 import org.amqp.notification.PushReceiver;
+//android 
+import android.util.Log;
 
 class PushManager  {
 
@@ -36,6 +37,7 @@ class PushManager  {
                 while (true) {
                     Delivery delivery = consumer.nextDelivery();
                     String message = new String(delivery.getBody());
+                    Log.d("MESSAGE",message);
                     PushNotification notification = new PushNotification(message);
                     PushReceiver.onNotificationReceived(notification, Push.getContext());
                 }
