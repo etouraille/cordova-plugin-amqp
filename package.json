@@ -1,48 +1,31 @@
 {
-"name": "cordova-plugin-inappbrowser",
-  "version": "1.0.0",
-  "description": "Cordova InAppBrowser Plugin",
+"name": "cordova-plugin-amqp",
+  "version": "0.0.1",
+  "description": "Cordova Push Notification AMQP",
   "cordova": {
-    "id": "cordova-plugin-inappbrowser",
+    "id": "cordova-plugin-amqp",
     "platforms": [
       "android",
-      "amazon-fireos",
-      "ubuntu",
-      "ios",
-      "wp7",
-      "wp8",
-      "windows8",
-      "windows",
-      "firefoxos"
     ]
   },
   "repository": {
     "type": "git",
-    "url": "https://git-wip-us.apache.org/repos/asf/cordova-plugin-inappbrowser.git"
+    "url": "https://github.com/etouraille/cordova-plugin-amqp.git"
   },
   "keywords": [
     "cordova",
-    "in",
-    "app",
-    "browser",
-    "inappbrowser",
+    "rabbitmq",
+    "notification",
+    "push",
     "ecosystem:cordova",
     "cordova-android",
-    "cordova-amazon-fireos",
-    "cordova-ubuntu",
-    "cordova-ios",
-    "cordova-wp7",
-    "cordova-wp8",
-    "cordova-windows8",
-    "cordova-windows",
-    "cordova-firefoxos"
   ],
   "engines": [
     {
       "name": "cordova",
-      "version": ">=3.1.0"
+      "version": "5.O.O"
     }
   ],
-  "author": "Apache Software Foundation",
-  "license": "Apache 2.0"
+  "author": "Edouard Touraille",
+  "license": "MIT"
 }
