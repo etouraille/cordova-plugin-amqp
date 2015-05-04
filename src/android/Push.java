@@ -37,7 +37,7 @@ public class Push extends CordovaPlugin {
 			clbContext = callbackContext;
 			notificationEventListener = args.getJSONObject(0).getString("notificationListener");
 
-cordovaWebView = this.webView;
+                        cordovaWebView = this.webView;
 			this.manager = new PushManager(cordova.getActivity());
                         // ############# INITIALIZE #############
                         if (ACTION_INITIALIZE.equals(action)) {
@@ -88,7 +88,7 @@ cordovaWebView = this.webView;
 		Push.inPause = false;
 	}
 
-	public static Context getContext() {
+	public static Context getWebView() {
 		return CordovaWebView;
 	}
 

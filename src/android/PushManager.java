@@ -21,7 +21,7 @@ class PushManager  {
 
     public PushManager( CordovaActivity activity ) throws Exception {
         activity.runOnUiThread(new Runnable() {
-            public void run(){
+            public void run() throws Exception{
                 ConnectionFactory factory = new ConnectionFactory();
                 factory.setHost("objetspartages.org");
                 factory.setUsername("toto");
@@ -39,10 +39,10 @@ class PushManager  {
                     String message = new String(delivery.getBody());
                     Log.e("MESSAGE",message);
                     PushNotification notification = new PushNotification(message);
-                    PushReceiver.onNotificationReceived(notification, Push.getContext());
+                    PushReceiver.onNotificationReceived(notification, Push.getWebView());
                 }
             }        
         });
     }
 
-}
+    }
