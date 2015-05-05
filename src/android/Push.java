@@ -88,9 +88,9 @@ public class Push extends CordovaPlugin {
 		Push.inPause = false;
 	}
 
-	public static Context getWebView() {
-		return CordovaWebView;
-	}
+	//public static Context getWebView() {
+	//	return CordovaWebView;
+	//}
 
 	public static void sendJavascript(String js) {
 		if (null != cordovaWebView) {

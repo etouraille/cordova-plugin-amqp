@@ -11,14 +11,16 @@ import org.amqp.notification.PushManagerObserver;
 import org.amqp.notification.PushManagerRunnable;
 //android 
 import android.util.Log;
-
+import android.app.Activity;
+import java.util.List;
+import java.util.ArrayList;
 class PushManager  {
 
     private List<String> errors = new ArrayList<String>();
     private Boolean enabled = false;
 
-    public PushManager( CordovaActivity activity ) throws Exception {
-        activity.runOnUiThread(new PushManagerRunnable(new PushManagerObserver(this), activity).run());
+    public PushManager( Activity activity ) throws Exception {
+        activity.runOnUiThread(new PushManagerRunnable(new PushManagerObserver(this), activity));
     }
 
     public void setEnabled(){
