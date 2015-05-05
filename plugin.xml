@@ -23,6 +23,10 @@
     <source-file src="src/android/PushHandlerActivity.java" target-dir="src/org/flibusteam/push/cordova" />
     <source-file src="src/android/PushManager.java" target-dir="src/org/flibusteam/push/cordova" />
     <source-file src="src/android/PushNotification.java" target-dir="src/org/flibusteam/push/cordova" />
+    <source-file src="src/android/PushManagerRunnable.java" target-dir="src/org/flibusteam/push/cordova" />
+    <source-file src="src/android/PushManagerObserver.java" target-dir="src/org/flibusteam/push/cordova" />
+    <lib-file src="src/android/amqp-client.jar" />
+    <lib-file src="src/android/amqp-client.jar" />
     <lib-file src="src/android/amqp-client.jar" />
     <config-file target="AndroidManifest.xml" parent="/*">
       <permission android:name="$PACKAGE_NAME.permission.C2D_MESSAGE" android:protectionLevel="signature" />

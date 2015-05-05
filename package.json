@@ -5,7 +5,7 @@
   "cordova": {
     "id": "cordova-plugin-amqp",
     "platforms": [
-      "android",
+      "android"
     ]
   },
   "repository": {
@@ -18,7 +18,7 @@
     "notification",
     "push",
     "ecosystem:cordova",
-    "cordova-android",
+    "cordova-android"
   ],
   "engines": [
     {
