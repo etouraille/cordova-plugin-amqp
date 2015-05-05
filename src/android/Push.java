@@ -54,7 +54,7 @@ public class Push extends CordovaPlugin {
 				return true;
 			}
 
-		catch (Exception e) {
+                } catch (Exception e) {
 			System.err.println("Exception: " + e.getMessage());
 			clbContext.error(e.getMessage());
 			return false;
