@@ -116,7 +116,8 @@ public class Push extends CordovaPlugin {
 			} else {
 				Log.v(TAG, "proceedNotification: caching extras to proceed at a later time.");
 				cachedNnotifications.add(extras);
-			}
+			
+                        }
 		}
 	}
 

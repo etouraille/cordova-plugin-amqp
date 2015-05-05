@@ -4,45 +4,33 @@ import org.apache.cordova.CordovaActivity;
 
 import java.lang.Runnable;
 import java.lang.Exception;
+import java.lang.String;
 
-//rabbit
-import com.rabbitmq.client.ConnectionFactory;
-import com.rabbitmq.client.Connection;
-import com.rabbitmq.client.Channel;
-import com.rabbitmq.client.QueueingConsumer;
-import com.rabbitmq.client.QueueingConsumer.Delivery;
 //org.amqp
-import org.amqp.notification.PushNotification;
-import org.amqp.notification.PushReceiver;
+import org.amqp.notification.PushManagerObserver;
+import org.amqp.notification.PushManagerRunnable;
 //android 
 import android.util.Log;
 
 class PushManager  {
 
+    private List<String> errors = new ArrayList<String>();
+    private Boolean enabled = false;
+
     public PushManager( CordovaActivity activity ) throws Exception {
-        activity.runOnUiThread(new Runnable() {
-            public void run() throws Exception{
-                ConnectionFactory factory = new ConnectionFactory();
-                factory.setHost("objetspartages.org");
-                factory.setUsername("toto");
-                factory.setPassword("toto");
-                factory.setVirtualHost("toto");
-                factory.setPort(5672);
-
-                Connection connection = factory.newConnection();
-                Channel channel = connection.createChannel();
-                channel.queueDeclare("hello", false, false, false, null);
-                QueueingConsumer consumer = new QueueingConsumer(channel);
-                channel.basicConsume("hello", true, consumer);
-                while (true) {
-                    Delivery delivery = consumer.nextDelivery();
-                    String message = new String(delivery.getBody());
-                    Log.e("MESSAGE",message);
-                    PushNotification notification = new PushNotification(message);
-                    PushReceiver.onNotificationReceived(notification, Push.getWebView());
-                }
-            }        
-        });
+        activity.runOnUiThread(new PushManagerRunnable(new PushManagerObserver(this), activity).run());
     }
 
+    public void setEnabled(){
+        this.enabled = true;
     }
+
+    public void setDisabled(){
+        this.enabled = false;
+    }
+
+    public void addError(String error){
+        errors.add(error);   
+    }
+
+}
