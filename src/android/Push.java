@@ -106,8 +106,8 @@ public class Push extends CordovaPlugin {
 							+ extras.toString() + ")";
 					Log.d(TAG, js);
 					sendJavascript(js);
-				} catch (JSONException e) {
-					e.printStackTrace();
+				} catch (Exception e) {
+					Log.e("ERROR WHILE NOT",e.getMessage());
 				}
 			} else {
 				Log.v(TAG, "proceedNotification: caching extras to proceed at a later time.");
