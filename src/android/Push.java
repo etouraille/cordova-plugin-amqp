@@ -54,16 +54,12 @@ public class Push extends CordovaPlugin {
 				return true;
 			}
 
-		} catch ( JSONException e) {
-			System.err.println("Exception JSON: " + e.getMessage());
-			clbContext.error(e.getMessage());
-			return false;
-		}
 		catch (Exception e) {
 			System.err.println("Exception: " + e.getMessage());
 			clbContext.error(e.getMessage());
 			return false;
 		}
+                return false;
 
 	}
 
