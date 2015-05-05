@@ -14,7 +14,7 @@ import org.amqp.notification.PushManagerObserver;
 //android
 import android.content.Context;
 import android.util.Log;
-import android.content.Context
+import android.content.Context;
 
 
 class PushManagerRunnable implements Runnable {
@@ -22,7 +22,7 @@ class PushManagerRunnable implements Runnable {
     private PushManagerObserver observer;
     private Context context;
 
-    public PushManagerRunnable(PushManagerObserver observe, Context context){
+    public PushManagerRunnable(PushManagerObserver observer, Context context){
         this.observer = observer;
         this.context = context;
     
