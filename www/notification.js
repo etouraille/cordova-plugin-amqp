@@ -24,5 +24,6 @@ var notification = {
         
     },
 };
+module.exports(notification);
     
 
