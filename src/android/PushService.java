@@ -30,11 +30,12 @@ class PushService extends Service{
             // because in the first intent there are the connexion and user information.
             // what is the solution to stop the servi   ce without calling stop self
     }
-    /*
+    
     @Override
     public IBinder onBind(Intent intent ){
+        return super.onBind(intent);
     }
-    */
+    
 
     //The thread listen to rabbit MQ
     //Received message are broadcasted
