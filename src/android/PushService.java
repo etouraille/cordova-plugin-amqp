@@ -87,7 +87,7 @@ class PushService extends Service{
         @Override
         public void handleMessage(Message msg) {
             switch (msg.what) {
-                case "MSG_SAY_HELLO" :
+                case 1 :
                     break;
                 default:
                     super.handleMessage(msg);
