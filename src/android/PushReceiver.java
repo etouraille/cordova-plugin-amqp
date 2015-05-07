@@ -1,21 +1,25 @@
 package org.amqp.notification;
 
-import org.amqp.notification.PushNotification;
-import org.amqp.notification.Push;
 import android.content.Context;
 import android.content.Intent;
+import android.content.BroadcastReceiver;
 
-public class PushReceiver {
+import org.amqp.notification.Push;
+import org.amqp.notification.PushNotification;
+
+import java.lang.String;
+
+
+class PushReceiver extends BroadcastReceiver {
+    public final static String PUSH_INTENT_EXTRA = "org.amqp.notification.push.intent.extra";
+    public final static String PUSH_INTENT_ACTION = "org.amqp.notification.push.intent.action";   
     
-    public static void onNotificationReceived(PushNotification notification, Context context ) {
-        if(Push.isActive() && !(Push.inPause)){
-            Intent intent = new Intent(context, org.amqp.notification.PushHandlerActivity.class);
-
-            intent.setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP | Intent.FLAG_ACTIVITY_NEW_TASK
-					| Intent.FLAG_ACTIVITY_CLEAR_TOP);
-            intent.putExtra("push", notification.toString());
-            
-            context.startActivity(intent);
-        } 
+    @Override
+    public void onReceive(Context context, Intent intent) {
+        if(PUSH_INTENT_ACTION.equals(intent.getAction())) {
+            String message = intent.getStringExtra(PUSH_INTENT_EXTRA);
+            Push.proceedNotification(new PushNotification(message));
+        }   
     }
+
 }
