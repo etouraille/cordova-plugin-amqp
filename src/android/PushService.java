@@ -1,9 +1,11 @@
 package org.amqp.notification;
-
 import android.app.Service;
 import android.content.Intent;
 import android.os.IBinder;
 import android.util.Log;
+import android.os.Handler;
+import android.os.Message;
+import android.os.Messenger;
 
 import java.lang.Runnable;
 import java.lang.Thread;
@@ -18,9 +20,11 @@ import com.rabbitmq.client.QueueingConsumer.Delivery;
 
 import org.amqp.notification.PushReceiver;
 
+
 class PushService extends Service{
     
     protected Thread amqpThread;
+    
     
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
@@ -31,12 +35,6 @@ class PushService extends Service{
             // what is the solution to stop the servi   ce without calling stop self
     }
     
-    @Override
-    public IBinder onBind(Intent intent ){
-        return new IBinder(); //to implement
-    }
-    
-
     //The thread listen to rabbit MQ
     //Received message are broadcasted
     //The message are proccessed in the PushManager and send to the view there.
@@ -85,4 +83,29 @@ class PushService extends Service{
         super.onDestroy();   
     }
 
+    class IncomingHandler extends Handler {
+        @Override
+        public void handleMessage(Message msg) {
+            switch (msg.what) {
+                case "MSG_SAY_HELLO" :
+                    break;
+                default:
+                    super.handleMessage(msg);
+            }
+        }
+    }
+
+    /**
+     * Target we publish for clients to send messages to IncomingHandler.
+     */
+    final Messenger mMessenger = new Messenger(new IncomingHandler());
+
+    /**
+     * When binding to the service, we return an interface to our messenger
+     * for sending messages to the service.
+     */
+    @Override
+    public IBinder onBind(Intent intent) {
+        return mMessenger.getBinder();
+    }
 }
