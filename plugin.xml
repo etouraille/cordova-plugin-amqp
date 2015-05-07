@@ -6,7 +6,7 @@
   <keywords>push,notification,rabbitMQ,amqp</keywords>
   <author email="edouard.touraille@gmail.com" href="http://www.objetspartages.org">Flibusteam</author>
   <engines>
-      <engine name="cordova" version=">=5.0.0" />
+      <engine name="cordova" version=">=4.0.0" />
   </engines>
   <js-module src="www/notification.js" name="Push">
     <clobbers target="push" />
