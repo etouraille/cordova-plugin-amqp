@@ -25,10 +25,8 @@ class PushService extends Service{
     
     protected Thread amqpThread;
     
-    
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
-        super.onStartCommand(intent, flags, startId);
         proceed(intent); 
         return START_REDELIVER_INTENT; // must be able to get the intent
             // because in the first intent there are the connexion and user information.
