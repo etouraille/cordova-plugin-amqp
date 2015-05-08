@@ -24,6 +24,6 @@ var notification = {
         
     },
 };
-module.exports(notification);
+module.exports = notification;
     
 
