@@ -2,7 +2,7 @@ var notification = {
     listener : function(event, data){}, // we define a signature for the methode
     
     listenerCallback : function(event, data){ // te callback call that signature, probably impossible to redefine a function is it already defined see redefinition method in js
-        amqp.listener(event, data);
+        notification.listener(event, data);
     },
     
     register : function(listener){
