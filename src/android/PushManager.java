@@ -6,6 +6,8 @@ import org.amqp.notification.PushService;
 import android.app.Activity;
 import android.content.Intent;
 
+import android.util.Log;
+
 class PushManager  {
 
     public PushManager( Activity activity ) {
