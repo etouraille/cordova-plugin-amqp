@@ -11,7 +11,7 @@ class PushManager  {
     public PushManager( Activity activity ) {
         
         Intent intent = new Intent(activity , PushService.class);
-        
+        Log.e("BEFORE START SERVICE",1);
         activity.startService(intent);
     
     }
