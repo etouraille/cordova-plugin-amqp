@@ -38,7 +38,7 @@ public class Push extends CordovaPlugin {
 			notificationEventListener = args.getJSONObject(0).getString("notificationListener");
 
                         cordovaWebView = this.webView;
-                        Log.e("INIT","INIT");
+                        Log.d("INIT","INIT");
 			this.manager = new PushManager(cordova.getActivity());
                         // ############# INITIALIZE #############
                         if (ACTION_INITIALIZE.equals(action)) {
