@@ -39,7 +39,8 @@ class PushService extends Service{
     //Received message are broadcasted
     //The message are proccessed in the PushManager and send to the view there.
     protected void proceed(Intent intent) {
-         amqpThread = new Thread(new Runnable() {
+        Log.e("IN PROCEED", "IN PROCEED"); 
+        amqpThread = new Thread(new Runnable() {
             public void run() {
                 try {
                     ConnectionFactory factory = new ConnectionFactory();
@@ -66,8 +67,10 @@ class PushService extends Service{
                             sendBroadcast(intent);
                         } 
                     } catch(IOException e){
+                        Log.d("IN EXCEPT",e.getMessage());
                       // must be none bloking do not detroy the service 
                     } catch(Exception e ){
+                        Log.d("IN EXECPT", e.getMessage());
                         //return the thread is dead
                         //check documentation for rabbitmq client exception
                     }
