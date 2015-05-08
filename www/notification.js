@@ -7,8 +7,10 @@ var notification = {
     
     register : function(listener){
         
+        notification.listener = listener;
+        
         function successCb(){
-            notification.listener = listener;
+        
         }
         function errorCb(){
             console.log('Error while registration');
