@@ -77,7 +77,7 @@ public class PushService extends Service{
                         //check documentation for rabbitmq client exception
                     }
             }
-         });
+         }).start();
     
     }
     //broadcast an error message if the service is unable to connext.
