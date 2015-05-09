@@ -21,7 +21,7 @@ var notification = {
             errorCb,
             'Push',
             'initialize',
-            [{'notificationListener' : 'notification.listenerCallback'}]
+            [{'notificationListener' : 'window.push.listenerCallback'}]
         );
         
     },
