@@ -54,6 +54,7 @@ public class PushService extends Service{
                     QueueingConsumer consumer = new QueueingConsumer(channel);
                     channel.basicConsume("hello", true, consumer);
                         while (true) {
+                            Log.d("IN WHILE", "IN WHILE");
                             //Put some weak references to delivery and messages
                               Delivery delivery = consumer.nextDelivery();
                             //Thread.sleep(1000);
