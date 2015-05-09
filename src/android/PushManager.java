@@ -12,10 +12,9 @@ class PushManager  {
 
     public PushManager( Activity activity ) {
         
-        //Intent intent = new Intent(activity , PushService.class);
+        Intent intent = new Intent( this, PushService.class);
         Log.e("BEFORE START SERVICE","1");
-        Intent intent = new Intent("org.amqp.notification.PushService");
+        //Intent intent = new Intent("org.amqp.notification.PushService");
         activity.startService(intent);
-    
     }
 }
