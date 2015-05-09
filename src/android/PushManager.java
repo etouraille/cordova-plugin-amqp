@@ -14,13 +14,8 @@ class PushManager  {
         
         //Intent intent = new Intent(activity , PushService.class);
         Log.e("BEFORE START SERVICE","1");
-        Intent intent = new Intent("org.amqp.notification.intent.PushService");
+        Intent intent = new Intent("org.amqp.notification.PushService");
         activity.startService(intent);
     
     }
-
-    
-
-    
-
 }

@@ -30,7 +30,7 @@
     <config-file target="AndroidManifest.xml" parent="/manifest/application">
         <service android:name="org.amqp.notification.PushService" >
             <intent-filter>
-                <action android:name="org.amqp.notification.intent.PushService"/>
+                <action android:name="org.amqp.notification.PushService"/>
             </intent-filter>
         </service>
         <receiver android:name="org.amqp.notification.PushReceiver" android:permission="com.google.android.c2dm.permission.SEND">
