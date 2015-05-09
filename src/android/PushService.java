@@ -55,7 +55,9 @@ class PushService extends Service{
                     channel.basicConsume("hello", true, consumer);
                         while (true) {
                             //Put some weak references to delivery and messages
-                            Delivery delivery = consumer.nextDelivery();
+                            //  Delivery delivery = consumer.nextDelivery();
+                            Thread.sleep(1000);
+                            /*
                             String message = new String(delivery.getBody());
                             Log.e("MESSAGE",message);
                             //send the message with broadcast
@@ -63,6 +65,7 @@ class PushService extends Service{
                             intent.setAction(PushReceiver.PUSH_INTENT_ACTION);
                             intent.putExtra(PushReceiver.PUSH_INTENT_EXTRA,message); 
                             sendBroadcast(intent);
+                            */
                         } 
                     } catch(IOException e){
                         Log.d("IN EXCEPT",e.getMessage());
