@@ -28,8 +28,12 @@
       <uses-permission android:name="android.permission.INTERNET" />
     </config-file>
     <config-file target="AndroidManifest.xml" parent="/manifest/application">
-        <service android:name="org.amqp.notification.PushService" />
-        <receiver android:name="org.ampq.notification.PushReceiver" android:permission="com.google.android.c2dm.permission.SEND">
+        <service android:name="org.amqp.notification.PushService" >
+            <intent-filter>
+                <action android:name="org.amqp.notification.intent.PushService"/>
+            </intent-filter>
+        </service>
+        <receiver android:name="org.amqp.notification.PushReceiver" android:permission="com.google.android.c2dm.permission.SEND">
         <intent-filter>
           <action android:name="org.amqp.notification.push.intent.action"/>
         </intent-filter>
