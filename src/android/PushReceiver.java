@@ -10,7 +10,7 @@ import org.amqp.notification.PushNotification;
 import java.lang.String;
 
 
-class PushReceiver extends BroadcastReceiver {
+public class PushReceiver extends BroadcastReceiver {
     public final static String PUSH_INTENT_EXTRA = "org.amqp.notification.push.intent.extra";
     public final static String PUSH_INTENT_ACTION = "org.amqp.notification.push.intent.action";   
     
