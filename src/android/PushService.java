@@ -21,7 +21,7 @@ import com.rabbitmq.client.QueueingConsumer.Delivery;
 import org.amqp.notification.PushReceiver;
 
 
-class PushService extends Service{
+public class PushService extends Service{
     
     protected Thread amqpThread;
     
