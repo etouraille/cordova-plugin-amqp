@@ -39,7 +39,7 @@ public class Push extends CordovaPlugin {
 
                         cordovaWebView = this.webView;
                         Log.e("INIT","INIT");
-			this.manager = new PushManager(cordova.getActivity());
+			this.manager = new PushManager(cordova.getActivity(),this);
                         // ############# INITIALIZE #############
                         if (ACTION_INITIALIZE.equals(action)) {
 				// Check if there is cached notifications
