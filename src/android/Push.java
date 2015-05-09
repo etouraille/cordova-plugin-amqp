@@ -103,8 +103,8 @@ public class Push extends CordovaPlugin {
 			if (null != cordovaWebView) {
 				try {
 					String js = notificationEventListener + "(\""
-							+ extras.getId() + "\", "
-							+ extras.toString() + ")";
+							+ extras.getId() + "\", \"" +
+							+ extras.toString() + "\")";
 					Log.d(TAG, js);
 					sendJavascript(js);
 				} catch (Exception e) {
