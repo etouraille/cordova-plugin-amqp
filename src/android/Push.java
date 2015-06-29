@@ -17,6 +17,7 @@ import android.util.Log;
 
 import org.amqp.notification.PushNotification;
 import org.amqp.notification.PushManager;
+import org.amqp.notification.Config;
 
 public class Push extends CordovaPlugin {
 	private static CallbackContext clbContext;
@@ -37,6 +38,11 @@ public class Push extends CordovaPlugin {
 			clbContext = callbackContext;
 			notificationEventListener = args.getJSONObject(0).getString("notificationListener");
 
+                        //read the configuration
+                        JSONObject configJson = args.getJSONObject(0).getJSONObject("configuration");
+                        
+                        Config.init(configJson, cordova.getActivity().getApplicationContext());
+                        
                         cordovaWebView = this.webView;
                         Log.e("INIT","INIT");
 			this.manager = new PushManager(cordova.getActivity(),this);
