@@ -69,7 +69,7 @@ public class NotificationService extends Service{
                     //or declaring a new queue for each application
                     //if i declare a single queue, it can be reload on and on again when restarting the notification service, 
                     String queueName = "NotificationQueue";
-                    boolean durable = true; // if the rabbitMQ server stops, the queue is stile available
+                    boolean durable = false; // if the rabbitMQ server stops, the queue is stile available
                     boolean exclusive = false; //the queue can be consume by other connexion, not dedicated to that connection only.
                     boolean autoDelete = false; //the queue must not be deleted, because it miht be use eventually by other apps
                     channel.queueDeclare(queueName, durable, exclusive, autoDelete, null);
