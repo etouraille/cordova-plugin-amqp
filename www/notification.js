@@ -12,8 +12,8 @@ var notification = {
         function successCb(){
         
         }
-        function errorCb(){
-            console.log('Error while registration');
+        function errorCb(data){
+            console.log('Error while registration' + data);
         }
         
         cordova.exec(
