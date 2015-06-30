@@ -49,7 +49,9 @@ public class NotificationService extends Service{
                     ConnectionFactory factory = new ConnectionFactory();
                     
                     Config configuration = new Config(getApplicationContext());
-                    
+                   
+                    Log.e("IN TREADDDDDDDDDDDDDDDDDDDDDDDDDDDD", configuration.host);
+
                     factory.setHost(configuration.host);
                     factory.setUsername(configuration.username);
                     factory.setPassword(configuration.password);
