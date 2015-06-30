@@ -5,7 +5,7 @@ var notification = {
         notification.listener(event, data);
     },
     
-    register : function(listener){
+    register : function(listener,  configuration ){
         
         notification.listener = listener;
         
@@ -21,7 +21,10 @@ var notification = {
             errorCb,
             'Push',
             'initialize',
-            [{'notificationListener' : 'window.push.listenerCallback'}]
+            [
+                {'notificationListener' : 'window.push.listenerCallback'},
+                {'configuration' : configuration }
+            ]
         );
         
     },
