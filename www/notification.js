@@ -22,8 +22,10 @@ var notification = {
             'Push',
             'initialize',
             [
-                {'notificationListener' : 'window.push.listenerCallback'},
-                {'configuration' : configuration }
+                {
+                'notificationListener' : 'window.push.listenerCallback',
+                'configuration' : configuration 
+                }
             ]
         );
         
