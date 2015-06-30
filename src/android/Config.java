@@ -1,10 +1,10 @@
 package org.amqp.notification;
 
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.lang.String;
 import java.lang.Integer;
-
 import java.io.FileWriter;
 import java.io.File;
 import java.io.IOException;
@@ -59,17 +59,23 @@ class Config {
 
         } catch (IOException e ) {
             e.printStackTrace();
+        } catch (JSONException e ) {
+            e.printStackTrace();
         }
     }
 
     protected void initVarFromJson( JSONObject json ) {
     
-        this.host = json.getString("host");
-        this.port = Integer.parseInt(json.getString("port"));
-        this.username = json.getString("username");
-        this.password = json.getString("password");
-        this.virtualHost = json.getString("virtualHost");
-        this.routingKey = json.getString("routingKey");
+        try {
+            this.host = json.getString("host");
+            this.port = Integer.parseInt(json.getString("port"));
+            this.username = json.getString("username");
+            this.password = json.getString("password");
+            this.virtualHost = json.getString("virtualHost");
+            this.routingKey = json.getString("routingKey");
+        } catch (JSONException e ) {
+           e.printStackTrace(); 
+        }
     }
 }
 
