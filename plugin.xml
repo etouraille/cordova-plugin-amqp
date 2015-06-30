@@ -23,15 +23,15 @@
     <source-file src="src/android/PushNotification.java" target-dir="src/org/amqp/notification/cordova" />
     <source-file src="src/android/PushReceiver.java" target-dir="src/org/amqp/notification/cordova" />
     <source-file src="src/android/PushService.java" target-dir="src/org/amqp/notification/cordova" />
+    <source-file src="src/android/NotificationService.java" target-dir="src/org/amqp/notification/cordova" />
     <lib-file src="src/android/amqp-client.jar" />
     <config-file target="AndroidManifest.xml" parent="/*">
       <uses-permission android:name="android.permission.INTERNET" />
     </config-file>
     <config-file target="AndroidManifest.xml" parent="/manifest/application">
         <service android:name="org.amqp.notification.PushService" >
-            <intent-filter>
-                <action android:name="org.amqp.notification.PushService"/>
-            </intent-filter>
+        </service>
+        <service android:name="org.amqp.notification.NotificationService" >
         </service>
         <receiver android:name="org.amqp.notification.PushReceiver" android:permission="com.google.android.c2dm.permission.SEND">
         <intent-filter>
