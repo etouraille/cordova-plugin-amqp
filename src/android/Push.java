@@ -62,7 +62,7 @@ public class Push extends CordovaPlugin {
 			}
 
                 } catch (Exception e) {
-			Log.e("<<<<<<EXCEPTION >>>>>>>: " + e.getMessage());
+			Log.e("<<<<<<EXCEPTION >>>>>>>: " , e.getMessage());
 			clbContext.error(e.getMessage());
 			return false;
 		}
